@@ -1,0 +1,55 @@
+.thumbnail-list {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  .thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-bottom: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  .thumbnail.selected {
+    border: 2px solid black;
+  }
+  
+  .main-image {
+    max-height: 500px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .carousel-arrow {
+    position: absolute;
+    top: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 2;
+    top: 50%;
+  }
+  .carousel-arrow.left {
+    left: 10px;
+  }
+  .carousel-arrow.right {
+    right: 10px;
+  }
+  
+  .carousel-arrow:hover {
+    background-color: #f0f0f0;
+  }  .attribute-btn {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+  }
+  .attribute-btn.selected {
+    background: black;
+    color: white;
+    border: 1px solid black;
+  }
+  

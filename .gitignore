@@ -1,0 +1,12 @@
+# Node
+node_modules/
+dist/
+
+# PHP
+vendor/
+
+# Env
+.env
+
+# Others
+.DS_Store
