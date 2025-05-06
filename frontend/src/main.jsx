@@ -8,7 +8,7 @@ import App from './App';
 import './index.css';
 
 const client = new ApolloClient({
-  uri: 'http://ecommerceproject/graphql',
+  uri: 'http://ecommercescandiweb.infinityfreeapp.com/public/graphql',
   cache: new InMemoryCache(),
 });
 
