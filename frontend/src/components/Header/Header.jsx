@@ -50,11 +50,8 @@ const Header = () => {
         {/* Right - Cart Icon */}
         <div className="position-relative">
           <button
-            className={`btn ${
-              cartItems.length === 0 ? "btn-light disabled" : "btn-outline-dark"
-            }`}
+            className="btn btn-outline-dark"
             onClick={handleCartClick}
-            disabled={cartItems.length === 0}
             data-testid="cart-btn"
           >
             🛒
