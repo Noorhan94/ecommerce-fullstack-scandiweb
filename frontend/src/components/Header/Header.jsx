@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import "../../styles/Header.css";
 
@@ -7,6 +7,7 @@ const categories = ["all", "tech", "clothes"];
 
 const Header = () => {
   const { cartItems, isCartOpen, setCartOpen } = useContext(CartContext);
+  const location = useLocation();
 
   const handleCartClick = () => {
     if (cartItems.length > 0) {
@@ -14,23 +15,27 @@ const Header = () => {
     }
   };
 
+  const getTestId = (category) => {
+    return location.pathname === `/${category}`
+      ? "active-category-link"
+      : "category-link";
+  };
+
   return (
     <header className="sticky-top bg-white shadow-sm">
       <nav className="container d-flex justify-content-between align-items-center py-3">
-        {/* Left - Categories */}
+        {/* Left - Category Links */}
         <div className="d-flex gap-4">
-          {categories.map((cat) => (
+          {categories.map((category) => (
             <NavLink
-              key={cat}
-              to={`/${cat}`}
+              key={category}
+              to={`/${category}`}
               className={({ isActive }) =>
                 isActive ? "active-category" : "category-link"
               }
-              data-testid={({ isActive }) =>
-                isActive ? "active-category-link" : "category-link"
-              }
+              data-testid={getTestId(category)}
             >
-              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+              {category.charAt(0).toUpperCase() + category.slice(1)}
             </NavLink>
           ))}
         </div>
@@ -45,8 +50,9 @@ const Header = () => {
         {/* Right - Cart Icon */}
         <div className="position-relative">
           <button
-            className={`btn ${cartItems.length === 0 ? "btn-light disabled" : "btn-outline-dark"}`}
-            style={{ position: "relative" }}
+            className={`btn ${
+              cartItems.length === 0 ? "btn-light disabled" : "btn-outline-dark"
+            }`}
             onClick={handleCartClick}
             disabled={cartItems.length === 0}
             data-testid="cart-btn"
