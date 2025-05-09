@@ -3,62 +3,53 @@ import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import "../../styles/Header.css";
 
+const categories = ["all", "tech", "clothes"];
+
 const Header = () => {
   const { cartItems, isCartOpen, setCartOpen } = useContext(CartContext);
 
   const handleCartClick = () => {
     if (cartItems.length > 0) {
-      setCartOpen(!isCartOpen); // toggle cart overlay
+      setCartOpen(!isCartOpen);
     }
   };
-  const isActive = (path) => location.pathname === path;
 
   return (
     <header className="sticky-top bg-white shadow-sm">
       <nav className="container d-flex justify-content-between align-items-center py-3">
-
-        {/* Left: Categories */}
+        {/* Left - Categories */}
         <div className="d-flex gap-4">
-          <NavLink
-            to="/all"
-            className={isActive("/all") ? "active-category" : "category-link"}
-            data-testid={isActive("/all") ? "active-category-link" : "category-link"}
-          >
-            All
-          </NavLink>
-
-          <NavLink
-            to="/tech"
-            className={isActive("/tech") ? "active-category" : "category-link"}
-            data-testid={isActive("/tech") ? "active-category-link" : "category-link"}
-          >
-            Tech
-          </NavLink>
-
-          <NavLink
-            to="/clothes"
-            className={isActive("/clothes") ? "active-category" : "category-link"}
-            data-testid={isActive("/clothes") ? "active-category-link" : "category-link"}
-          >
-            Clothes
-          </NavLink>
+          {categories.map((cat) => (
+            <NavLink
+              key={cat}
+              to={`/${cat}`}
+              className={({ isActive }) =>
+                isActive ? "active-category" : "category-link"
+              }
+              data-testid={({ isActive }) =>
+                isActive ? "active-category-link" : "category-link"
+              }
+            >
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </NavLink>
+          ))}
         </div>
 
-
-        {/* Center - Logo */}
+        {/* Center - Brand */}
         <div className="text-center">
           <NavLink to="/" className="navbar-brand fw-bold fs-4">
-            🛍️
+            E-Store
           </NavLink>
         </div>
 
-        {/* Right - Cart Button */}
+        {/* Right - Cart Icon */}
         <div className="position-relative">
           <button
-            data-testid="cart-btn"
             className={`btn ${cartItems.length === 0 ? "btn-light disabled" : "btn-outline-dark"}`}
+            style={{ position: "relative" }}
             onClick={handleCartClick}
             disabled={cartItems.length === 0}
+            data-testid="cart-btn"
           >
             🛒
             {cartItems.length > 0 && (
