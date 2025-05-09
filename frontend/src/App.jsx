@@ -44,7 +44,7 @@ function App() {
       {/* ✅ Clean Routing */}
       <Routes>
         <Route path="/" element={<Category />} />
-        <Route path="/category/:categoryName" element={<Category />} />
+        <Route path="/:categoryName" element={<Category />} />
         <Route path="/product/:id" element={<ProductDetailsWrapper products={data.products} />} />
       </Routes>
     </>
