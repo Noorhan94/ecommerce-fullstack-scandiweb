@@ -18,21 +18,21 @@ const Header = () => {
         {/* Left - Category Links */}
         <div className="d-flex gap-4">
           <NavLink
-            to="/category/all"
+            to="/all"
             className={({ isActive }) => isActive ? "active-category" : "category-link"}
             data-testid={({ isActive }) => isActive ? "active-category-link" : "category-link"}
           >
             All
           </NavLink>
           <NavLink
-            to="/category/tech"
+            to="/tech"
             className={({ isActive }) => isActive ? "active-category" : "category-link"}
             data-testid={({ isActive }) => isActive ? "active-category-link" : "category-link"}
           >
             Tech
           </NavLink>
           <NavLink
-            to="/category/clothes"
+            to="/clothes"
             className={({ isActive }) => isActive ? "active-category" : "category-link"}
             data-testid={({ isActive }) => isActive ? "active-category-link" : "category-link"}
           >
