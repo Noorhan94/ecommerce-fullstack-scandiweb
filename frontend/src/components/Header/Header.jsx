@@ -19,18 +19,21 @@ const Header = () => {
         <div className="d-flex gap-4">
           <NavLink
             to="/all"
+            className={({ isActive }) => isActive ? "active-category" : "category-link"}
             data-testid={({ isActive }) => isActive ? "active-category-link" : "category-link"}
           >
             All
           </NavLink>
           <NavLink
             to="/tech"
+            className={({ isActive }) => isActive ? "active-category" : "category-link"}
             data-testid={({ isActive }) => isActive ? "active-category-link" : "category-link"}
           >
             Tech
           </NavLink>
           <NavLink
             to="/clothes"
+            className={({ isActive }) => isActive ? "active-category" : "category-link"}
             data-testid={({ isActive }) => isActive ? "active-category-link" : "category-link"}
           >
             Clothes
