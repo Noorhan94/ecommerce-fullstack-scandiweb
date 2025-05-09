@@ -34,10 +34,11 @@ const ProductCard = ({ product }) => {
   const handleCardClick = () => {
     navigate(`/product/${product.id}`);
   };
-
+  const  lowerCaseProductName = product.name.toString().toLowerCase();
   return (
     <div
-      data-testid={`product-${kebabCase(product.name)}`}
+      data-testid={`product-${kebabCase(lowerCaseProductName)}`}
+
       className="product-card p-2 position-relative"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
