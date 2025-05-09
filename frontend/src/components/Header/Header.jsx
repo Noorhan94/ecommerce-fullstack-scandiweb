@@ -11,34 +11,39 @@ const Header = () => {
       setCartOpen(!isCartOpen); // toggle cart overlay
     }
   };
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="sticky-top bg-white shadow-sm z-3">
+    <header className="sticky-top bg-white shadow-sm">
       <nav className="container d-flex justify-content-between align-items-center py-3">
-        {/* Left - Category Links */}
+
+        {/* Left: Categories */}
         <div className="d-flex gap-4">
           <NavLink
             to="/all"
-            className={({ isActive }) => isActive ? "active-category" : "category-link"}
-            data-testid={({ isActive }) => isActive ? "active-category-link" : "category-link"}
+            className={isActive("/all") ? "active-category" : "category-link"}
+            data-testid={isActive("/all") ? "active-category-link" : "category-link"}
           >
             All
           </NavLink>
+
           <NavLink
             to="/tech"
-            className={({ isActive }) => isActive ? "active-category" : "category-link"}
-            data-testid={({ isActive }) => isActive ? "active-category-link" : "category-link"}
+            className={isActive("/tech") ? "active-category" : "category-link"}
+            data-testid={isActive("/tech") ? "active-category-link" : "category-link"}
           >
             Tech
           </NavLink>
+
           <NavLink
             to="/clothes"
-            className={({ isActive }) => isActive ? "active-category" : "category-link"}
-            data-testid={({ isActive }) => isActive ? "active-category-link" : "category-link"}
+            className={isActive("/clothes") ? "active-category" : "category-link"}
+            data-testid={isActive("/clothes") ? "active-category-link" : "category-link"}
           >
             Clothes
           </NavLink>
         </div>
+
 
         {/* Center - Logo */}
         <div className="text-center">
