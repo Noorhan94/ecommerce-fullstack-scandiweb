@@ -10,9 +10,7 @@ const Header = () => {
   const location = useLocation();
 
   const handleCartClick = () => {
-    if (cartItems.length > 0) {
       setCartOpen(!isCartOpen);
-    }
   };
 
   const getTestId = (category) => {
