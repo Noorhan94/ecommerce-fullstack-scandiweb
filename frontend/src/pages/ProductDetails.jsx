@@ -127,7 +127,7 @@ const ProductDetails = () => {
                         style={{
                         border : attr.type === 'swatch' && isSelected ? '2px solid green' : '',
                         padding : attr.type === 'swatch' && isSelected ? '2px' : '' }}
-                        data-testid={`product-attribute-${kebabCase(attr.name)}-${kebabCase(item)}`}
+                        data-testid={`product-attribute-${kebabCase(attr.name)}-${kebabCase(item.toLowerCase())}`}
                         >
                             <button
                             key={item}
