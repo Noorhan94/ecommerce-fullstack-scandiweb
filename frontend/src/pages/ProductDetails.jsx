@@ -117,7 +117,7 @@ const ProductDetails = () => {
 
           {/* Attributes */}
           {product.attributes.map((attr) => (
-            <div key={attr.name} className="mb-4">
+            <div key={attr.name} className="mb-4" data-testid={`product-attribute-${kebabCase(attr.name)} >
               <p className="fw-bold">{attr.name}:</p>
               <div className="d-flex gap-2 flex-wrap" >
                 {attr.items.map((item) => {
