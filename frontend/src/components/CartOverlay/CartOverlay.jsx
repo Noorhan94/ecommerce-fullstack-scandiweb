@@ -10,7 +10,6 @@ const CartOverlay = () => {
   const { cartItems,setCartItems, increaseQty, decreaseQty, setCartOpen } = useContext(CartContext);
 
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
-  if (cartItems.length === 0) return null; // don't show overlay if cart empty
   const items = cartItems.map(item => ({
     product_id: item.product_id,
     quantity: item.quantity,
