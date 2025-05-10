@@ -122,12 +122,13 @@ const ProductDetails = () => {
               <div className="d-flex gap-2 flex-wrap" >
                 {attr.items.map((item) => {
                   const isSelected = selectedAttributes[attr.name] === item;
+                  const lowerCaseItem = item.toLowerCase();
                   return (
                       <div key={`border-${(item)}` }           
                         style={{
                         border : attr.type === 'swatch' && isSelected ? '2px solid green' : '',
                         padding : attr.type === 'swatch' && isSelected ? '2px' : '' }}
-                        data-testid={`product-attribute-${kebabCase(attr.name)}-${kebabCase(item.toLowerCase())}`}
+                        data-testid={`product-attribute-${kebabCase(attr.name)}-${kebabCase(lowerCaseItem)}`}
                         >
                             <button
                             key={item}
