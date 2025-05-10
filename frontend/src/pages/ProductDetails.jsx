@@ -118,17 +118,19 @@ const ProductDetails = () => {
           {/* Attributes */}
           {product.attributes.map((attr) => (
             <div key={attr.name} className="mb-4" data-testid={`product-attribute-${kebabCase(attr.name)}`} >
+
+
               <p className="fw-bold">{attr.name}:</p>
               <div className="d-flex gap-2 flex-wrap" >
                 {attr.items.map((item) => {
                   const isSelected = selectedAttributes[attr.name] === item;
-                  const lowerCaseItem = item.toLowerCase();
                   return (
                       <div key={`border-${(item)}` }           
                         style={{
                         border : attr.type === 'swatch' && isSelected ? '2px solid green' : '',
                         padding : attr.type === 'swatch' && isSelected ? '2px' : '' }}
-                        data-testid={`product-attribute-${kebabCase(attr.name)}-${kebabCase(lowerCaseItem)}`}
+                        data-testid={`product-attribute-${attr.name.replace(/\s+/g, '-').toLowerCase()}-${item}`}
+
                         >
                             <button
                             key={item}
