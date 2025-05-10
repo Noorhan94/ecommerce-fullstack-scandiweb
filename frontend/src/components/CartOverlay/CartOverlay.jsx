@@ -82,7 +82,7 @@ const handlePlaceOrder = async () => {
 
   return (
     <div className="position-fixed  start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex justify-content-end" style={{ zIndex: 1050 }}>
-      <div className="bg-white itemDiv" style={{ width: "400px", borderRadius: "5px", maxHeight: "100vh", boxShadow: "0 4px 10px rgba(0,0,0,0.3)" }}>
+      <div className="bg-white itemDiv" data-testid="cart-overlay" style={{ width: "400px", borderRadius: "5px", maxHeight: "100vh", boxShadow: "0 4px 10px rgba(0,0,0,0.3)" }}>
         
         {/* Header */}
         <div className="cartHeader">
