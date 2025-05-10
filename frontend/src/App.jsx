@@ -6,6 +6,8 @@ import ProductDetailsWrapper from './pages/ProductDetailsWrapper';
 import CartOverlay from './components/CartOverlay/CartOverlay';
 import Category from './pages/Category';
 import Header from './components/Header/Header';
+import { Navigate } from "react-router-dom"; 
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const GET_PRODUCTS = gql`
@@ -43,7 +45,7 @@ function App() {
 
       {/* ✅ Clean Routing */}
       <Routes>
-        <Route path="/" element={<Category />} />
+        <Route path="/" element={<Navigate to="/all" />} />
         <Route path="/:categoryName" element={<Category />} />
         <Route path="/product/:id" element={<ProductDetailsWrapper products={data.products} />} />
       </Routes>
