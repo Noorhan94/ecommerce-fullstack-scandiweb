@@ -88,7 +88,7 @@ const handlePlaceOrder = async () => {
         <div className="cartHeader">
           <div className=" d-flex justify-content-between align-items-center mb-4">
           <h5 className="mb-0">
-            My Bag ({cartItems.length} {cartItems.length === 1 ? 'Item' : 'Items'})
+            My Bag ({cartItems.length} {cartItems.length > 1 ? 'Items' : 'Item'})
           </h5>
             <button className="btn-close" onClick={handleClose}></button>
           </div>
